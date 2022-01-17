@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-[Check here the Live Demo!]()
+[Check here the Live Demo!](https://shadyshawkat.github.io/bookstore/)
 
 ### Prerequisites
 
