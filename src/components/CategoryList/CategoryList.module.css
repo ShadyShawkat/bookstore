@@ -1,1 +1,6 @@
-.CategoryList {}
+.category-list {
+  font-size: 6em;
+  font-weight: bold;
+  color: #8d8d8d;
+  user-select: none;
+}

@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Book.module.css';
 
-const Book = ({ book }) => <div className={styles.book}>{book.name}</div>;
+const Book = ({ book }) => (
+  <>
+    <h4 className={styles['book-name']}>{book.name}</h4>
+    <button type="button">Remove</button>
+  </>
+);
 
 Book.propTypes = {
   book: PropTypes.shape({
