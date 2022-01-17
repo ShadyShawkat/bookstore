@@ -1,0 +1,7 @@
+.wrapper {
+  padding: 10vh 10vw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
