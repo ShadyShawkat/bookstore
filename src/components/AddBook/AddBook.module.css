@@ -1,0 +1,9 @@
+.add-form {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+select {
+  margin-left: 0.5em;
+}
