@@ -31,6 +31,10 @@ function App() {
         <Routes>
           <Route path="/" element={<BookList books={dummyBooksData} />} />
           <Route path="/categories" element={<CategoryList />} />
+          <Route
+            path="/bookstore"
+            element={<BookList books={dummyBooksData} />}
+          />
         </Routes>
       </div>
     </>
