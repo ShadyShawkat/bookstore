@@ -5,12 +5,14 @@
   flex-direction: column;
   gap: 1em;
 }
+
 .book-list__wrapper {
   display: flex;
   flex-direction: column;
   gap: 3em;
   align-items: center;
 }
+
 .book-list li {
   display: flex;
   justify-content: space-between;
