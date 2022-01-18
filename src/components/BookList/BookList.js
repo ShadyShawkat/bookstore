@@ -8,6 +8,9 @@ import Book from '../Book/Book';
 const BookList = ({ books }) => (
   <div className={styles['book-list__wrapper']}>
     <AddBook />
+    {books.length === 0 && (
+      <div className={styles['no-books-div']}>No books added yet</div>
+    )}
     <ul className={styles['book-list']}>
       {books.map((book) => (
         <li key={book.id}>
