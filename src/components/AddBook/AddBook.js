@@ -23,6 +23,8 @@ const AddBook = () => {
       category: categoryValue,
     };
     dispatch(addBookAsync(newBook));
+    setBookTitle('');
+    setCategoryValue('none');
   };
 
   return (
