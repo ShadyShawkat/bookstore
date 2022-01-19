@@ -13,7 +13,7 @@ const BookList = ({ books }) => (
     )}
     <ul className={styles['book-list']}>
       {books.map((book) => (
-        <li key={book.id}>
+        <li key={book.item_id}>
           <Book book={book} />
         </li>
       ))}
@@ -24,8 +24,8 @@ const BookList = ({ books }) => (
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
+      item_id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
     }),
   ).isRequired,
