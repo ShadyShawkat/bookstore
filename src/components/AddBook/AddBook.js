@@ -8,7 +8,6 @@ import { addBook } from '../../redux/books/books';
 
 const AddBook = () => {
   const [bookTitle, setBookTitle] = useState('');
-  const [bookAuthor, setBookAuthor] = useState('');
   const [categoryValue, setCategoryValue] = useState('none');
   const dispatch = useDispatch();
 
@@ -16,16 +15,12 @@ const AddBook = () => {
     setBookTitle(e.target.value);
   };
 
-  const BookAuthorInputHandler = (e) => {
-    setBookAuthor(e.target.value);
-  };
-
   const submitBookHandler = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuid(),
+      item_id: uuid(),
       title: bookTitle.trim(),
-      author: bookAuthor.trim(),
+      category: 'Fiction',
     };
     dispatch(addBook(newBook));
   };
@@ -37,12 +32,6 @@ const AddBook = () => {
         placeholder="Add a book title"
         value={bookTitle}
         onChange={BookTitleInputHandler}
-      />
-      <input
-        type="text"
-        placeholder="Book author"
-        value={bookAuthor}
-        onChange={BookAuthorInputHandler}
       />
       <label htmlFor="categories">
         Choose a category:
@@ -63,11 +52,7 @@ const AddBook = () => {
       <button
         type="submit"
         onClick={submitBookHandler}
-        disabled={
-          bookTitle.trim() === '' ||
-          bookAuthor.trim() === '' ||
-          categoryValue === 'none'
-        }
+        disabled={bookTitle.trim() === '' || categoryValue === 'none'}
       >
         Add
       </button>
