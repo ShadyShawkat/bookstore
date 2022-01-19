@@ -13,7 +13,7 @@ const addBook = (payload) => ({
   payload,
 });
 
-export const removeBook = (payload) => ({
+const removeBook = (payload) => ({
   type: REMOVE_BOOK,
   payload,
 });
@@ -44,6 +44,18 @@ export const addBookAsync = (newBook) => (dispatch) => {
   })
     .then(() => {
       dispatch(addBook(newBook));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const removeBookAsync = (id) => (dispatch) => {
+  fetch(`${baseURL}/books/${id}`, {
+    method: 'DELETE',
+  })
+    .then(() => {
+      dispatch(removeBook(id));
     })
     .catch((err) => {
       console.log(err);
