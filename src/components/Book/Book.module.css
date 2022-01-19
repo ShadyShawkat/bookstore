@@ -3,7 +3,8 @@
   font-size: 2em;
 }
 
-.book-author {
+.book-category {
   font-weight: bold;
   color: gray;
+  margin-left: 0.5em;
 }
