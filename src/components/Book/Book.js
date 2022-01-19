@@ -8,14 +8,14 @@ const Book = ({ book }) => {
   const dispatch = useDispatch();
 
   const removeBookHandler = () => {
-    dispatch(removeBook(book.id));
+    dispatch(removeBook(book.item_id));
   };
 
   return (
     <>
       <h4>
         <span className={styles['book-title']}>{book.title}</span>
-        <span className={styles['book-author']}>{` by '${book.author}'`}</span>
+        <span className={styles['book-category']}>{book.category}</span>
       </h4>
       <button type="button" onClick={removeBookHandler}>
         Remove
@@ -26,9 +26,8 @@ const Book = ({ book }) => {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
 };
