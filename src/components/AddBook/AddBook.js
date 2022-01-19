@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import styles from './AddBook.module.css';
 
-import { addBookAsync } from '../../redux/books/books';
+import { addBook } from '../../redux/books/books';
 
 const AddBook = () => {
   const [bookTitle, setBookTitle] = useState('');
@@ -22,7 +22,7 @@ const AddBook = () => {
       title: bookTitle.trim(),
       category: categoryValue,
     };
-    dispatch(addBookAsync(newBook));
+    dispatch(addBook(newBook));
     setBookTitle('');
     setCategoryValue('none');
   };
