@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Book.module.css';
 
-import { removeBook } from '../../redux/books/books';
+import { removeBookAsync } from '../../redux/books/books';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
 
   const removeBookHandler = () => {
-    dispatch(removeBook(book.item_id));
+    dispatch(removeBookAsync(book.item_id));
   };
 
   return (
