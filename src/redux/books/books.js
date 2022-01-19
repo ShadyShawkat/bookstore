@@ -36,6 +36,18 @@ export const fetchBooksAsync = () => (dispatch) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case FETCH_BOOKS: {
+      const books = [];
+      [...Object.entries(action.payload)].forEach((b) => {
+        const book = {
+          item_id: b[0],
+          title: b[1][0].title,
+          category: b[1][0].category,
+        };
+        books.push(book);
+      });
+      return books;
+    }
     case ADD_BOOK:
       return [...state, action.payload];
     case REMOVE_BOOK:
