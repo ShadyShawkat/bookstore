@@ -8,7 +8,7 @@ const baseURL =
 
 const initialState = [];
 
-export const addBook = (payload) => ({
+const addBook = (payload) => ({
   type: ADD_BOOK,
   payload,
 });
@@ -28,6 +28,22 @@ export const fetchBooksAsync = () => (dispatch) => {
     .then((data) => data.json())
     .then((data) => {
       dispatch(fetchBooks(data));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const addBookAsync = (newBook) => (dispatch) => {
+  fetch(`${baseURL}/books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newBook),
+  })
+    .then(() => {
+      dispatch(addBook(newBook));
     })
     .catch((err) => {
       console.log(err);
