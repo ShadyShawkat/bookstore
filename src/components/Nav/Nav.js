@@ -1,4 +1,5 @@
-import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
@@ -6,9 +7,9 @@ const Nav = () => {
   return (
     <nav className="px-lg py-5 bg-neutral-50 border flex gap-10 items-baseline">
       <Link to="/">
-        <h1 className="text-blue-600 text-3xl font-bold">Bookstore</h1>
+        <h1 className="text-primary text-3xl font-bold">Bookstore</h1>
       </Link>
-      <ul className="flex gap-10 text-xs tracking-widest">
+      <ul className="flex gap-10 text-sm font-medium tracking-widest">
         <li>
           <Link
             to="/"
@@ -34,6 +35,9 @@ const Nav = () => {
           </Link>
         </li>
       </ul>
+      <div className="ml-auto text-primary">
+        <FontAwesomeIcon icon={faUser} />
+      </div>
     </nav>
   );
 };
