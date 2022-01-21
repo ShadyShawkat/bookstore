@@ -7,6 +7,9 @@ module.exports = {
         lg: '10vw',
         sm: '3vw',
       },
+      colors: {
+        primary: '#0290ff',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
