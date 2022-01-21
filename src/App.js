@@ -19,13 +19,11 @@ const App = () => {
   return (
     <>
       <Nav />
-      {/* <div className={styles.wrapper}> */}
       <Routes>
         <Route path="/" element={<BookList books={books} />} />
         <Route path="/categories" element={<CategoryList />} />
         <Route path="/bookstore" element={<BookList books={books} />} />
       </Routes>
-      {/* </div> */}
     </>
   );
 };
