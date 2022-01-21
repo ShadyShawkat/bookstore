@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './App.module.css';
+// import styles from './App.module.css';
 
 import { fetchBooks } from './redux/books/books';
 import Nav from './components/Nav/Nav';
@@ -19,13 +19,13 @@ const App = () => {
   return (
     <>
       <Nav />
-      <div className={styles.wrapper}>
-        <Routes>
-          <Route path="/" element={<BookList books={books} />} />
-          <Route path="/categories" element={<CategoryList />} />
-          <Route path="/bookstore" element={<BookList books={books} />} />
-        </Routes>
-      </div>
+      {/* <div className={styles.wrapper}> */}
+      <Routes>
+        <Route path="/" element={<BookList books={books} />} />
+        <Route path="/categories" element={<CategoryList />} />
+        <Route path="/bookstore" element={<BookList books={books} />} />
+      </Routes>
+      {/* </div> */}
     </>
   );
 };
