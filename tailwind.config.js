@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       spacing: {
         lg: '10vw',
+        sm: '5vw',
       },
     },
   },
