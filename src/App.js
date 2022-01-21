@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import styles from './App.module.css';
 
 import { fetchBooks } from './redux/books/books';
 import Nav from './components/Nav/Nav';
