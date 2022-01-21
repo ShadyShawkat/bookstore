@@ -13,7 +13,9 @@ const Nav = () => {
           <Link
             to="/"
             className={`hover:text-blue-500 ${
-              location.pathname === '/' ? 'text-neutral-900' : 'text-gray-400'
+              location.pathname === '/' || location.pathname === '/bookstore'
+                ? 'text-neutral-900'
+                : 'text-gray-400'
             }`}
           >
             BOOKS
