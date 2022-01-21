@@ -11,16 +11,19 @@ const BookList = ({ books }) => (
         No books added yet
       </div>
     )}
-    <ul className="py-14 gap-3 flex flex-col">
-      {books.map((book) => (
-        <li
-          key={book.item_id}
-          className="flex bg-neutral-50 border rounded-md pl-5 pr-8 py-4"
-        >
-          <Book book={book} />
-        </li>
-      ))}
-    </ul>
+    {books.length !== 0 && (
+      <ul className="py-14 gap-3 flex flex-col">
+        {books.map((book) => (
+          <li
+            key={book.item_id}
+            className="flex bg-neutral-50 border rounded-md pl-5 pr-8 py-4"
+          >
+            <Book book={book} />
+          </li>
+        ))}
+      </ul>
+    )}
+    <div className="border-b-2 border-gray-200 my-5" />
     <AddBook />
   </div>
 );
