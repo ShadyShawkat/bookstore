@@ -32,8 +32,12 @@ export const fetchBooks = () => async (dispatch) => {
   [...Object.entries(data)].forEach((b) => {
     const book = {
       item_id: b[0],
-      title: b[1][0].title,
-      category: b[1][0].category,
+      title: b[1][0].title
+        .toLowerCase()
+        .replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase()),
+      category: b[1][0].category
+        .toLowerCase()
+        .replace(/(^\w{1})|(\s{1}\w{1})|([-]\w{1})/g, (match) => match.toUpperCase()),
     };
     books.push(book);
   });
