@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './BookList.module.css';
+// import styles from './BookList.module.css';
 
 import AddBook from '../AddBook/AddBook';
 import Book from '../Book/Book';
 
 const BookList = ({ books }) => (
-  <div className={styles['book-list__wrapper']}>
-    <AddBook />
+  <div className="px-lg">
     {books.length === 0 && (
-      <div className={styles['no-books-div']}>No books added yet</div>
+      <div className="font-extrabold text-5xl text-gray-500 select-none text-center py-14">
+        No books added yet
+      </div>
     )}
-    <ul className={styles['book-list']}>
+    <ul className="py-14">
       {books.map((book) => (
         <li key={book.item_id}>
           <Book book={book} />
         </li>
       ))}
     </ul>
+    <AddBook />
   </div>
 );
 
