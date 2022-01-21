@@ -1,23 +1,31 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './BookList.module.css';
 
 import AddBook from '../AddBook/AddBook';
 import Book from '../Book/Book';
+import Spinner from '../Spinner/Spinner';
 
-const BookList = ({ books }) => (
-  <div className={styles['book-list__wrapper']}>
-    <AddBook />
-    {books.length === 0 && (
-      <div className={styles['no-books-div']}>No books added yet</div>
+const BookList = ({ books, booksLoadingState }) => (
+  <div className="px-lg">
+    {!booksLoadingState && <Spinner />}
+    {books.length === 0 && booksLoadingState && (
+      <div className="font-extrabold text-5xl text-gray-500 select-none text-center py-14">
+        No books added yet
+      </div>
     )}
-    <ul className={styles['book-list']}>
-      {books.map((book) => (
-        <li key={book.item_id}>
-          <Book book={book} />
-        </li>
-      ))}
-    </ul>
+    {books.length !== 0 && booksLoadingState && (
+      <ul className="py-14 gap-3 flex flex-col">
+        {books.map((book) => (
+          <li
+            key={book.item_id}
+            className="flex bg-neutral-50 border rounded-md pl-5 pr-8 py-4"
+          >
+            <Book book={book} />
+          </li>
+        ))}
+      </ul>
+    )}
+    <div className="border-b-2 border-gray-200 my-5" />
+    <AddBook />
   </div>
 );
 
@@ -29,8 +37,7 @@ BookList.propTypes = {
       category: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  booksLoadingState: PropTypes.bool.isRequired,
 };
-
-BookList.defaultProps = {};
 
 export default BookList;

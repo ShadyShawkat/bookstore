@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './App.module.css';
 
 import { fetchBooks } from './redux/books/books';
 import Nav from './components/Nav/Nav';
@@ -10,22 +9,33 @@ import CategoryList from './components/CategoryList/CategoryList';
 
 const App = () => {
   const books = useSelector((state) => state.books);
+  const [booksLoadingState, setBookLoadingState] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBooks());
+    dispatch(fetchBooks()).then(() => {
+      setBookLoadingState(true);
+    });
   }, []);
 
   return (
     <>
       <Nav />
-      <div className={styles.wrapper}>
-        <Routes>
-          <Route path="/" element={<BookList books={books} />} />
-          <Route path="/categories" element={<CategoryList />} />
-          <Route path="/bookstore" element={<BookList books={books} />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <BookList books={books} booksLoadingState={booksLoadingState} />
+          }
+        />
+        <Route path="/categories" element={<CategoryList />} />
+        <Route
+          path="/bookstore"
+          element={
+            <BookList books={books} booksLoadingState={booksLoadingState} />
+          }
+        />
+      </Routes>
     </>
   );
 };

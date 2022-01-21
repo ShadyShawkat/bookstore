@@ -10,11 +10,20 @@ const FETCH_BOOKS = 'bookStore/books/FETCH_BOOKS';
 
 const initialState = [];
 
+const capitalizeWords = (string) => string
+  .toLowerCase()
+  .replace(/(^\w{1})|(\s{1}\w{1})|([-]\w{1})/g, (match) => match.toUpperCase());
+
 export const addBook = (newBook) => async (dispatch) => {
   await addBookAsync(newBook);
+  const book = {
+    ...newBook,
+    title: capitalizeWords(newBook.title),
+    category: capitalizeWords(newBook.category),
+  };
   dispatch({
     type: ADD_BOOK,
-    payload: newBook,
+    payload: book,
   });
 };
 
@@ -32,8 +41,8 @@ export const fetchBooks = () => async (dispatch) => {
   [...Object.entries(data)].forEach((b) => {
     const book = {
       item_id: b[0],
-      title: b[1][0].title,
-      category: b[1][0].category,
+      title: capitalizeWords(b[1][0].title),
+      category: capitalizeWords(b[1][0].category),
     };
     books.push(book);
   });
@@ -42,6 +51,8 @@ export const fetchBooks = () => async (dispatch) => {
     type: FETCH_BOOKS,
     payload: books,
   });
+
+  return 'loaded';
 };
 
 const reducer = (state = initialState, action) => {

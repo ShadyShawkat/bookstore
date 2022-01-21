@@ -1,6 +1,8 @@
 .category-list {
-  font-size: 6em;
+  font-size: 4em;
   font-weight: bold;
-  color: #8d8d8d;
+  color: rgba(107, 114, 128);
   user-select: none;
+  text-align: center;
+  padding-top: 20vh;
 }
