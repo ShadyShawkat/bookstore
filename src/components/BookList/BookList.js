@@ -13,7 +13,7 @@ const BookList = ({ books, booksLoadingState }) => (
       </div>
     )}
     {books.length !== 0 && booksLoadingState && (
-      <ul className="py-14 gap-3 flex flex-col">
+      <ul className="py-14 gap-3 flex flex-col max-h-halfHeight overflow-y-scroll pr-4">
         {books.map((book) => (
           <li
             key={book.item_id}

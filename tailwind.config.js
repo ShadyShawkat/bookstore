@@ -6,6 +6,7 @@ module.exports = {
       spacing: {
         lg: '10vw',
         sm: '3vw',
+        halfHeight: '50vh',
       },
       colors: {
         primary: '#0290ff',
