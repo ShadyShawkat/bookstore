@@ -4,9 +4,9 @@ module.exports = {
     extend: {
       spacing: {
         lg: '10vw',
-        sm: '5vw',
+        sm: '3vw',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
