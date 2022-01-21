@@ -2,7 +2,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import styles from './AddBook.module.css';
 
 import { addBook } from '../../redux/books/books';
 
@@ -28,37 +27,52 @@ const AddBook = () => {
   };
 
   return (
-    <form className={styles['add-form']}>
-      <input
-        type="text"
-        placeholder="Add a book title"
-        value={bookTitle}
-        onChange={BookTitleInputHandler}
-      />
-      <label htmlFor="categories">
-        Choose a category:
+    <>
+      <h3 className="mb-3 font-bold tracking-wider text-gray-500">
+        ADD NEW BOOK
+      </h3>
+      <form className="flex gap-6 items-center">
+        <input
+          type="text"
+          placeholder="Book title"
+          value={bookTitle}
+          onChange={BookTitleInputHandler}
+          className="h-9 py-0 placeholder:text-gray-400 grow"
+        />
         <select
           id="categories"
           value={categoryValue}
           onChange={(e) => setCategoryValue(e.target.value)}
+          className={`form-select h-9 py-0 pl-3 pr-12 ${
+            categoryValue === 'none' && 'text-gray-400'
+          }`}
         >
-          <option value="none" disabled hidden>
-            Categories
+          <option value="none" disabled hidden className="text-gray-400">
+            Category
           </option>
-          <option value="action">Action</option>
-          <option value="drama">Drama</option>
-          <option value="sci-fi">Sci-Fi</option>
-          <option value="horror">Horror</option>
+          <option value="action" className="text-black">
+            Action
+          </option>
+          <option value="drama" className="text-black">
+            Drama
+          </option>
+          <option value="sci-fi" className="text-black">
+            Sci-Fi
+          </option>
+          <option value="horror" className="text-black">
+            Horror
+          </option>
         </select>
-      </label>
-      <button
-        type="submit"
-        onClick={submitBookHandler}
-        disabled={bookTitle.trim() === '' || categoryValue === 'none'}
-      >
-        Add
-      </button>
-    </form>
+        <button
+          type="submit"
+          onClick={submitBookHandler}
+          disabled={bookTitle.trim() === '' || categoryValue === 'none'}
+          className="bg-blue-500 text-white font-bold text-xs px-6 py-1 rounded-md h-9 disabled:bg-gray-500"
+        >
+          ADD BOOK
+        </button>
+      </form>
+    </>
   );
 };
 
