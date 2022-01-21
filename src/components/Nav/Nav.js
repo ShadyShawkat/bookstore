@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <nav className="px-lg py-5 bg-neutral-50 border flex gap-10 items-baseline">
       <Link to="/">
