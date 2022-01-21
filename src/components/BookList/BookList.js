@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './BookList.module.css';
 
 import AddBook from '../AddBook/AddBook';
 import Book from '../Book/Book';
@@ -14,7 +13,10 @@ const BookList = ({ books }) => (
     )}
     <ul className="py-14">
       {books.map((book) => (
-        <li key={book.item_id}>
+        <li
+          key={book.item_id}
+          className="flex bg-neutral-50 border rounded-md px-5 py-4"
+        >
           <Book book={book} />
         </li>
       ))}
@@ -32,7 +34,5 @@ BookList.propTypes = {
     }),
   ).isRequired,
 };
-
-BookList.defaultProps = {};
 
 export default BookList;

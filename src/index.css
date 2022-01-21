@@ -42,7 +42,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background-color: rgb(245, 245, 245);
+  background-color: #f1f1f1;
 }
 
 /* A elements that don't have a class get default styles */
