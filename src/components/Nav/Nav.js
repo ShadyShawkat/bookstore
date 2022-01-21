@@ -5,7 +5,7 @@ const Nav = () => {
   const location = useLocation();
   console.log(location.pathname);
   return (
-    <nav className="px-14 py-5 bg-neutral-50 border flex gap-10 items-baseline">
+    <nav className="px-lg py-5 bg-neutral-50 border flex gap-10 items-baseline">
       <Link to="/">
         <h1 className="text-blue-600 text-3xl font-bold">Bookstore</h1>
       </Link>
