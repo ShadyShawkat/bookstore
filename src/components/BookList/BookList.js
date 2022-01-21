@@ -1,17 +1,18 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import AddBook from '../AddBook/AddBook';
 import Book from '../Book/Book';
+import Spinner from '../Spinner/Spinner';
 
-const BookList = ({ books }) => (
+const BookList = ({ books, booksLoadingState }) => (
   <div className="px-lg">
-    {books.length === 0 && (
+    {!booksLoadingState && <Spinner />}
+    {books.length === 0 && booksLoadingState && (
       <div className="font-extrabold text-5xl text-gray-500 select-none text-center py-14">
         No books added yet
       </div>
     )}
-    {books.length !== 0 && (
+    {books.length !== 0 && booksLoadingState && (
       <ul className="py-14 gap-3 flex flex-col">
         {books.map((book) => (
           <li
@@ -36,6 +37,7 @@ BookList.propTypes = {
       category: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  booksLoadingState: PropTypes.bool.isRequired,
 };
 
 export default BookList;

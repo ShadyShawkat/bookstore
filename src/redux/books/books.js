@@ -51,6 +51,8 @@ export const fetchBooks = () => async (dispatch) => {
     type: FETCH_BOOKS,
     payload: books,
   });
+
+  return 'loaded';
 };
 
 const reducer = (state = initialState, action) => {
