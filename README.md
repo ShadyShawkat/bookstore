@@ -2,7 +2,7 @@
 
 # Bookstore
 
-> "Bookstore" is a website made with React, Redux, and CSS3. The project is displaying a list of books, adding, and removing books.
+> "Bookstore" is a website built with React, Redux, and Tailwind for styling. The project is displaying a list of books, adding, and removing books.
 
 ### Screenshot
 ![screenshot](./app_screenshot.png)
@@ -10,8 +10,8 @@
 ## Built With
 
 - React
-- Redux
-- CSS
+- Redux (Duck pattern)
+- Tailwind
 
 ## Live Demo
 
